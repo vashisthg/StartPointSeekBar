@@ -9,6 +9,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.ImageView;
 
@@ -17,7 +18,7 @@ import java.math.BigDecimal;
 /**
  * Created by vashisthg on 01/04/14.
  */
-public class StartPointSeekBar<T extends Number>  extends ImageView
+public class StartPointSeekBar<T extends Number>  extends View
 {
     private final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
 

@@ -31,6 +31,7 @@ public class MainActivity extends ActionBarActivity {
         // add RangeSeekBar to pre-defined layout
         ViewGroup layout = (ViewGroup) findViewById(R.id.seekbarwrapper);
         layout.addView(seekBar);
+    }
   
 
 

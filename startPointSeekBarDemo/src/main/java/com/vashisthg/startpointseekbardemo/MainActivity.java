@@ -32,6 +32,7 @@ public class MainActivity extends ActionBarActivity {
         ViewGroup layout = (ViewGroup) findViewById(R.id.seekbarwrapper);
         layout.addView(seekBar);
     }
+  
 
 
     @Override

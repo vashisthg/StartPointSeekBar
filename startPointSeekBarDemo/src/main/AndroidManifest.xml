@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.vashisthg.startpointseekbardemo" >
-
-    <uses-sdk android:targetSdkVersion="19"
-        android:minSdkVersion="8"/>
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"

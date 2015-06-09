@@ -272,8 +272,6 @@ public class StartPointSeekBar extends View {
     private final void trackTouchEvent(MotionEvent event) {
         final int pointerIndex = event.findPointerIndex(mActivePointerId);
         final float x = event.getX(pointerIndex);
-
-
         setNormalizedValue(screenToNormalized(x));
     }
 
@@ -358,7 +356,6 @@ public class StartPointSeekBar extends View {
      */
     private boolean evalPressedThumb(float touchX) {
         return isInThumbRange(touchX, normalizedThumbValue);
-
     }
 
     /**
@@ -387,7 +384,6 @@ public class StartPointSeekBar extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
         // draw seek bar background line
         final RectF rect = new RectF(padding,
                 0.5f * (getHeight() - lineHeight), getWidth() - padding,
@@ -427,62 +423,5 @@ public class StartPointSeekBar extends View {
         canvas.drawBitmap(pressed ? thumbPressedImage : thumbImage, screenCoord
                         - thumbHalfWidth,
                 (float) ((0.5f * getHeight()) - thumbHalfHeight), paint);
-    }
-
-    /**
-     * Utility enumaration used to convert between Numbers and doubles.
-     *
-     * @author Stephan Tittel (stephan.tittel@kom.tu-darmstadt.de)
-     */
-    private static enum NumberType {
-        LONG, DOUBLE, INTEGER, FLOAT, SHORT, BYTE, BIG_DECIMAL;
-
-        public static <E extends Number> NumberType fromNumber(E value)
-                throws IllegalArgumentException {
-            if (value instanceof Long) {
-                return LONG;
-            }
-            if (value instanceof Double) {
-                return DOUBLE;
-            }
-            if (value instanceof Integer) {
-                return INTEGER;
-            }
-            if (value instanceof Float) {
-                return FLOAT;
-            }
-            if (value instanceof Short) {
-                return SHORT;
-            }
-            if (value instanceof Byte) {
-                return BYTE;
-            }
-            if (value instanceof BigDecimal) {
-                return BIG_DECIMAL;
-            }
-            throw new IllegalArgumentException("Number class '"
-                    + value.getClass().getName() + "' is not supported");
-        }
-
-        public Number toNumber(double value) {
-            switch (this) {
-                case LONG:
-                    return new Long((long) value);
-                case DOUBLE:
-                    return value;
-                case INTEGER:
-                    return new Integer((int) value);
-                case FLOAT:
-                    return new Float(value);
-                case SHORT:
-                    return new Short((short) value);
-                case BYTE:
-                    return new Byte((byte) value);
-                case BIG_DECIMAL:
-                    return new BigDecimal(value);
-            }
-            throw new InstantiationError("can't convert " + this
-                    + " to a Number object");
-        }
     }
 }

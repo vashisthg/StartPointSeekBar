@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="default_background_color">@color/material_blue_grey_800</color>
+    <color name="default_background_range_color">#33B5E5</color>
+</resources>

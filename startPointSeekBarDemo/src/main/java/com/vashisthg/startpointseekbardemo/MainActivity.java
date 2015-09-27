@@ -1,17 +1,13 @@
 package com.vashisthg.startpointseekbardemo;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.ViewGroup;
-import android.widget.SeekBar;
 
 import com.vashisthg.startpointseekbar.StartPointSeekBar;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
 
     private static final String LOGTAG = "MainActivity";
 
@@ -26,5 +22,9 @@ public class MainActivity extends ActionBarActivity {
                 Log.d(LOGTAG, "seekbar value:" + value);
             }
         });
+
+
+        // setting progress on your own
+        seekBar.setProgress(+20);
     }
 }

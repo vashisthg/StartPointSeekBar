@@ -245,7 +245,7 @@ public class StartPointSeekBar extends View {
         return true;
     }
 
-    private final void onSecondaryPointerUp(MotionEvent ev) {
+    private void onSecondaryPointerUp(MotionEvent ev) {
         final int pointerIndex = (ev.getAction() & ACTION_POINTER_INDEX_MASK) >> ACTION_POINTER_INDEX_SHIFT;
 
         final int pointerId = ev.getPointerId(pointerIndex);
@@ -269,7 +269,7 @@ public class StartPointSeekBar extends View {
         }
     }
 
-    private final void trackTouchEvent(MotionEvent event) {
+    private void trackTouchEvent(MotionEvent event) {
         final int pointerIndex = event.findPointerIndex(mActivePointerId);
         final float x = event.getX(pointerIndex);
         setNormalizedValue(screenToNormalized(x));
@@ -328,8 +328,22 @@ public class StartPointSeekBar extends View {
      *
      * @param value The new normalized max value to set.
      */
-    public void setNormalizedValue(double value) {
+
+    private void setNormalizedValue(double value) {
         normalizedThumbValue = Math.max(0d, value);
+        invalidate();
+    }
+
+    /**
+     * Sets value of seekbar to the given value
+     * @param value The new value to set
+     */
+    public void setProgress(double value) {
+        double newThumbValue = valueToNormalized(value);
+        if (newThumbValue > absoluteMaxValue || newThumbValue < absoluteMinValue) {
+            throw new IllegalArgumentException("Value should be in the middle of max and min value");
+        }
+        normalizedThumbValue = newThumbValue;
         invalidate();
     }
 
